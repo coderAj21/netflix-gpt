@@ -3,19 +3,23 @@ import Header from './Header';
 import {validateFormData} from "../utils/validate";
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
 import {auth} from "../utils/firebase";
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../redux/slices/userSlice';
+import {userLogo, netflixBackground } from '../utils/constant';
 
 
 const Login = () => {
     const [isUser,setIsUser]=useState(true);
+    
     const [checkError,setCheckError]=useState({});
+    
     const[formData,setFormData]=useState({
         name:"",email:"",password:""
     });
-    const navigate=useNavigate();
+    
+    
     const dispatch=useDispatch();
+
     function changeHanlder(event){
         const{name,value}=event.target;
         setFormData((prev)=>(
@@ -25,10 +29,12 @@ const Login = () => {
             }
         ))
     }
+
     function submitHanlder(event){
         event.preventDefault();
         const res=validateFormData(formData.email,formData.password);
         setCheckError(res);
+        // Sign up
         if (!isUser && !res.email && !res.password){
             console.log("New User");
             createUserWithEmailAndPassword(auth, formData.email, formData.password)
@@ -37,7 +43,7 @@ const Login = () => {
                 console.log("1");
                 // Update the Existing Profile...
                 updateProfile(user, {
-                    displayName: formData.name, photoURL:"https://avatars.githubusercontent.com/u/127975606?v=4",
+                    displayName: formData.name, photoURL:userLogo,
                   }).then(() => {
                     const {uid,email,displayName,photoURL} = auth.currentUser;
                     dispatch(addUser({
@@ -49,8 +55,6 @@ const Login = () => {
                     console.log("3");
                     console.log("New user...");
                     console.log(user);
-                    navigate("/browse");
-
                   }).catch((error) => {
                     console.log(error.message);
                     setCheckError((prev)=>({
@@ -66,13 +70,14 @@ const Login = () => {
                     error:"User is Already Registered.."
                 }))
             });
-        }if (isUser && !res.email && !res.password){
+        }
+        // Sign in
+        if (isUser && !res.email && !res.password){
             console.log("Sign in");
             signInWithEmailAndPassword(auth, formData.email, formData.password)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    // navigate("/browse");
                 })
                 .catch((error) => {
                     console.log(error.message);
@@ -88,8 +93,7 @@ const Login = () => {
     <div className='relative'>
         <Header/>
         <div className='absolute max-w-[95%]'>
-            <img src={'https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d'
-            +'-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg'}
+            <img src={netflixBackground}
             alt="logo"
             className="brightness-50 scale-110 object-fit overflow-hidden"
             ></img>
@@ -101,7 +105,7 @@ const Login = () => {
                 {
                     !isUser && (
                         <input type='text' placeholder='Name '
-                         className='p-4 m-4 w-11/12 bg-[#333] text-[#fff] rounded
+                         className='p-4 my-2 mx-4 w-11/12 bg-[#333] text-[#fff] rounded
                         outline-none hover:outline hover:outline-[#e87c03]'
                         name="name"
                         value={formData.name}

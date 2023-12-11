@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const userSlice=createSlice({
+const userSlice=createSlice({
     name:"user",
     initialState:null,
     reducers:{
