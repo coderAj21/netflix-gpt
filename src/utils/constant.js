@@ -12,3 +12,5 @@ export const optionApi={
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyN2Y0NDk1NDNlYzdhOTViZDY1ODQ0OTcxMjgzYjRiYSIsInN1YiI6IjY1NzViNWVhNGJmYTU0MDBmZTdlYjg1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FJolkI1z5o5g9KwD0Vec7_uIBIVaTlFsD_ih3-Ump-Y'
     }
 };
+
+export const movieImg="https://image.tmdb.org/t/p/w400";
