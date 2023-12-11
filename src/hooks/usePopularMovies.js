@@ -8,7 +8,7 @@ const usePopularMovies=()=>{
 
   async function fetchApi(){
     try{
-      const api=await fetch("https://api.themoviedb.org/3/movie/popular?page=1",optionApi);
+      const api=await fetch("https://api.themoviedb.org/3/movie/popular?page=2",optionApi);
       const response=await api.json();
       dispatch(addPopularMovies(response.results));
     }catch(error){
