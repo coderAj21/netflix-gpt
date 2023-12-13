@@ -2,9 +2,10 @@ import React from 'react';
 import { movieImg } from '../utils/constant';
 
 const MovieCard = ({poster_path}) => {
+  if (!poster_path)return;
   return (
-    <div className="min-w-[200px] pr-5">
-        <img className='w-full asoect-square' src={movieImg+poster_path} alt=''></img>
+    <div className="min-w-[200px] max-w-[200px]">
+        <img className='w-full aspect-rectangle' src={movieImg+poster_path} alt=''></img>
     </div>
   )
 }

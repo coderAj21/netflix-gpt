@@ -6,8 +6,11 @@ import SecondaryContainer from './SecondaryContainer';
 import usePopularMovies from '../hooks/usePopularMovies';
 import useTrendingMovies from '../hooks/useTrendingMovies';
 import useUpcomingMovies from '../hooks/useUpcomingMovies';
+import { useSelector } from 'react-redux';
+import GptSearch from "./GptSearch";
 
 const Browse = () => {
+  const showGptSearch=useSelector((store)=>(store.gpt?.showGptSearch));
   // it will fetch the movie list api and store the data into movieSlices;
   useNowPlayingMovies();
   usePopularMovies();
@@ -16,8 +19,17 @@ const Browse = () => {
   return (
     <div className='relative'>
       <Header/>
-      <MainContainer/>
-      <SecondaryContainer/>
+      {
+        showGptSearch?
+        (<GptSearch/>)
+        :
+        (
+          <div>
+            <MainContainer/>
+            <SecondaryContainer/>
+          </div>
+        )
+      }
     </div>
   )
 }

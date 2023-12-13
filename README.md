@@ -25,7 +25,19 @@
 - fetch th data for the trailer video
 - create the state in moviesSlice and add the reducer in it and named it trailerVideo
 - embeded the youtube video and make it autoplay and mute
-- 
+- use the tailwind class to make mainContainer and secondary Container beautiful
+- build the secondary container
+- create and build the MovieList for various trends like popular now playing and upcoming
+- crete and build the MovieCard
+- go to tmdb find basic and by images section you will get the image of the movie
+- create the slices for popular , now playing upcoming movies
+- remove the youtube video control and add the unmute and mute option in app
+- create gptSearch page
+- add gtpSearchBar page and customize the input bar in the header section by the css
+- Integrete GPT Apis
+- memoization new concept learn
+
+
 
 # Feature
     -> Login/ Sign Up

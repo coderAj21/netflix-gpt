@@ -135,13 +135,13 @@ const Login = () => {
                 <button className='py-3 font-semibold my-4 mx-4 bg-[#e50914] w-11/12 rounded hover:bg-[#e50914df]'
                 type='submit'
                 onClick={submitHanlder}>{isUser?"Sign In":"Sign Up"}</button>
-                <p className='m-4'>{isUser?"New to Netflix ? ":"Already Registered ? "}
-                <span className='hover:underline cursor-pointer'
+                <p className='m-4 text-[#737373]'>{isUser?"New to Netflix ? ":"Already Registered ? "}
+                <span className='hover:underline cursor-pointer text-white'
                 onClick={()=>{
                     setIsUser(!isUser)
                     setCheckError({});
 
-                }}>{isUser?"Sign up now":"Sign in now"}</span></p>
+                }}>{isUser?"Sign up now.":"Sign in now."}</span></p>
             </form>
         </div>
 
@@ -149,4 +149,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
