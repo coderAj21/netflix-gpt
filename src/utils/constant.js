@@ -9,10 +9,10 @@ export const optionApi={
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyN2Y0NDk1NDNlYzdhOTViZDY1ODQ0OTcxMjgzYjRiYSIsInN1YiI6IjY1NzViNWVhNGJmYTU0MDBmZTdlYjg1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FJolkI1z5o5g9KwD0Vec7_uIBIVaTlFsD_ih3-Ump-Y',
+      Authorization: 'Bearer '+process.env.REACT_APP_TMDB_KEY,
     }
 };
 
 export const movieImg="https://image.tmdb.org/t/p/w400";
 
-export const OPEN_API_KEY="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";
+export const OPEN_API_KEY=process.env.REACT_APP_OPEN_API_KEY;
