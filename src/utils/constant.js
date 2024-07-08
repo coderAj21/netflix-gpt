@@ -19,27 +19,23 @@ export const movieImg="https://image.tmdb.org/t/p/w200";
 export const OPEN_API_KEY=process.env.REACT_APP_OPEN_API_KEY;
 export const GEMINI_API_KEY=process.env.REACT_APP_GEMINI_API_KEY;
 export const settings={
-  dots: false,
-  infinite: false,
-  lazyLoad: true,
   speed: 1000,
   slidesToShow: 5,
   slidesToScroll: 3,
-  initialSlide: 0,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 3,
         infinite: false,
         dots: false
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 2,
         initialSlide: 2,
         infinite: false,
@@ -49,8 +45,8 @@ export const settings={
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: 3,
+        slidesToScroll: 2,
         infinite: false,
         dots: false
       }

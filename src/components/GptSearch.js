@@ -5,7 +5,7 @@ import { netflixBackground } from '../utils/constant';
 
 const GptSearch = () => {
   return (
-    <div>
+    <div className='w-screen'>
       {/* <div className='absolute max-w-[95%]'>
             <img src={netflixBackground}
             alt="logo"

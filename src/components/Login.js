@@ -99,9 +99,9 @@ const Login = () => {
             ></img>
         </div>
         <div 
-        className='absolute w-3/12 bg-[rgba(0,0,0,.75)] mt-[8%] border-black mx-auto left-0 right-0 text-white '>
-            <form className='flex flex-col px-12 py-6' onSubmit={submitHanlder}>
-                <h1 className='font-semibold text-3xl my-4 mx-4'>{isUser?"Sign In":"Sign Up"}</h1>
+        className='absolute w-3/12 max-sm:w-9/12 max-md:w-5/12 bg-[rgba(0,0,0,.75)] mt-[8%] max-md:mt-[15%] max-sm:mt-[40%] border-black mx-auto left-0 right-0 text-white '>
+            <form className='flex flex-col px-12 py-6 max-sm:px-8' onSubmit={submitHanlder}>
+                <h1 className='font-semibold text-3xl my-4 mx-4 max-sm:text-2xl'>{isUser?"Sign In":"Sign Up"}</h1>
                 {
                     !isUser && (
                         <input type='text' placeholder='Name '
@@ -113,7 +113,7 @@ const Login = () => {
                     )
                 }
                 <input type='email' placeholder='Email or Phone Number'
-                className="p-4 m-4 w-11/12 bg-[#333] text-[#fff] rounded outline-none hover:outline hover:outline-[#e87c03]"
+                className="p-4 m-4 w-11/12 max-sm:text-sm bg-[#333] text-[#fff] rounded outline-none hover:outline hover:outline-[#e87c03]"
                 name='email'
                 value={formData.email}
                 onChange={changeHanlder}></input>
@@ -121,7 +121,7 @@ const Login = () => {
                 <p className='mx-5 text-[13px] -mt-3 w-11/12 text-[#e87c03]'>{checkError && checkError.email}</p>
 
                 <input type='password' placeholder='Password'
-                className='p-4 m-4 w-11/12 bg-[#333] text-[#fff] rounded outline-none hover:outline hover:outline-[#e87c03]'
+                className='p-4 m-4 w-11/12 max-sm:text-sm bg-[#333] text-[#fff] rounded outline-none hover:outline hover:outline-[#e87c03]'
                 name='password'
                 value={formData.password}
                 onChange={changeHanlder}></input>
@@ -135,7 +135,7 @@ const Login = () => {
                 <button className='py-3 font-semibold my-4 mx-4 bg-[#e50914] w-11/12 rounded hover:bg-[#e50914df]'
                 type='submit'
                 onClick={submitHanlder}>{isUser?"Sign In":"Sign Up"}</button>
-                <p className='mt-4 mx-4 text-[#737373]'>{isUser?"New to Netflix ? ":"Already Registered ? "}
+                <p className='mt-4 mx-4 max-sm:text-[15px] text-[#737373]'>{isUser?"New to Netflix ? ":"Already Registered ? "}
                 <span className='hover:underline cursor-pointer text-white'
                 onClick={()=>{
                     setIsUser(!isUser)
@@ -143,7 +143,7 @@ const Login = () => {
 
                 }}>{isUser?"Sign up now.":"Sign in now."}</span></p>
             </form>
-            <div className='w-11/12 mx-2 p-1 text-[#737373]'>
+            <div className='w-11/12 mx-2 p-1 max-sm:text-sm text-[#737373]'>
                 <p>Email:user003@gmail.com</p>
                 <p>password:Coder@101</p>
             </div>

@@ -16,7 +16,8 @@ const VideoBackground=({movieId})=>{
              title="YouTube video player" 
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
             </iframe>
-            <div className="absolute right-[4%] top-[24%] text-3xl border border-white w-fit rounded-full p-[1px] z-50"
+            <div className="absolute right-[4%] lg:bottom-[25%] text-3xl  border border-white w-fit rounded-full
+             p-[1px] z-50 max-sm:bottom-5 max-sm:text-base md:bottom-20 md:text-xl xl:bottom-[35%]"
             onClick={()=>(setIsMute(!isMute))}>
                 <div className="border border-white rounded-full text-white cursor-pointer p-2 hover:opacity-70 font-bold">
                     {

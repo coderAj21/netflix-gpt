@@ -48,23 +48,27 @@ const Header = () => {
   },[]);
 
   return (
-    <div className="absolute py-6 px-12 w-full bg-gradient-to-b from-black z-20 flex justify-between ">
+    <div className="absolute max-sm:px-2 md:px-8 py-6 px-12 w-full bg-gradient-to-b from-black z-20 flex justify-between ">
       <NavLink to={"/"}>
-        <div className="w-44 fill-[#e50914]">
+        <div className="w-44 md:w-36 max-sm:w-20 fill-[#e50914]">
           {netflixLogo}
         </div>
       </NavLink>
       {
         userData && (
-          <div className='flex gap-x-6 max-h-9'>
-            <button className='px-3 bg-purple-800 text-white text-[13px] rounded font-semibold hover:bg-purple-900'
-            onClick={handleGptSearchClick}>{toggleGpt?"Home":"GPT"}</button>
-            <img src={userLogo}
-              alt=''
-              className='w-9 h-9'></img>
+          <div className='flex flex-row justify-end gap-x-6 h-9 max-sm:h-6 max-sm:gap-x-2'>
+            <button className='px-3 py-1 bg-purple-800 text-white text-[13px] rounded font-semibold hover:bg-purple-900'
+                onClick={handleGptSearchClick}>
+                {toggleGpt?"Home":"GPT"}
+            </button>
+            {
+              !toggleGpt && 
               <button
               className='z-50 px-2 font-bold text-white text-[13px] bg-[#e50914] rounded hover:bg-[#e50914df]'
-              onClick={handleSignOut}>Sign Out</button>
+              onClick={handleSignOut}
+              >Sign Out
+              </button>
+            }
           </div>
         )
       }

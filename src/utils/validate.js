@@ -12,7 +12,7 @@ export function validateFormData(email,password){
         return res;
     }
     if(!checkPassword){
-        res.password="Your password must contain between 4 and 60 characters.";
+        res.password="Your password must contain atleast 4 Characters.";
         return res;
     }
     return res;
