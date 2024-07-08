@@ -90,17 +90,17 @@ const Login = () => {
     }
 
   return (
-    <div className='relative'>
+    <div className='relative w-screen h-screen'>
         <Header/>
-        <div className='absolute max-w-[95%]'>
+        <div className='absolute h-full w-full overflow-hidden'>
             <img src={netflixBackground}
             alt="logo"
-            className="brightness-50 scale-110 object-fit overflow-hidden"
+            className="brightness-50 h-full w-full object-cover scale-110"
             ></img>
         </div>
         <div 
-        className='absolute w-3/12 bg-[rgba(0,0,0,.75)] border-black my-36 mx-auto left-0 right-0 text-white '>
-            <form className='flex flex-col p-12' onSubmit={submitHanlder}>
+        className='absolute w-3/12 bg-[rgba(0,0,0,.75)] mt-[8%] border-black mx-auto left-0 right-0 text-white '>
+            <form className='flex flex-col px-12 py-6' onSubmit={submitHanlder}>
                 <h1 className='font-semibold text-3xl my-4 mx-4'>{isUser?"Sign In":"Sign Up"}</h1>
                 {
                     !isUser && (
@@ -135,7 +135,7 @@ const Login = () => {
                 <button className='py-3 font-semibold my-4 mx-4 bg-[#e50914] w-11/12 rounded hover:bg-[#e50914df]'
                 type='submit'
                 onClick={submitHanlder}>{isUser?"Sign In":"Sign Up"}</button>
-                <p className='m-4 text-[#737373]'>{isUser?"New to Netflix ? ":"Already Registered ? "}
+                <p className='mt-4 mx-4 text-[#737373]'>{isUser?"New to Netflix ? ":"Already Registered ? "}
                 <span className='hover:underline cursor-pointer text-white'
                 onClick={()=>{
                     setIsUser(!isUser)
@@ -143,8 +143,11 @@ const Login = () => {
 
                 }}>{isUser?"Sign up now.":"Sign in now."}</span></p>
             </form>
+            <div className='w-11/12 mx-2 p-1 text-[#737373]'>
+                <p>Email:user003@gmail.com</p>
+                <p>password:Coder@101</p>
+            </div>
         </div>
-
     </div>
   )
 }

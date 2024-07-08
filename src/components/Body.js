@@ -5,7 +5,7 @@ import { Route, Routes} from 'react-router-dom';
 
 const Body = () => {
   return (
-    <div>
+    <div className='select-none w-screen h-screen'>
       <Routes>
         <Route path='/' element={<Login/>}></Route>
         <Route path='/browse' element={<Browse/>}></Route>

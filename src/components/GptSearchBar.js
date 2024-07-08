@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import { openai } from '../utils/openai';
+import { getMoviesfromOpenAi} from '../utils/openai';
 import { optionApi } from '../utils/constant';
 import { useDispatch } from 'react-redux';
 import { addGptMovieResult } from '../redux/slices/gptSlice';
+import { getMoviesfromGemini } from '../utils/gemini';
 
 const GptSearchBar = () => {
   const dispatch=useDispatch();
@@ -11,14 +12,8 @@ const GptSearchBar = () => {
     console.log(searchText.current.value)
     // make an api call to gpt api and get movie results
     try{
-      const gptQuery="Act as a Movie Recommendation system and suggest some movies for the query : "+searchText.current.value
-      +".only give me name of 5 movies, comma seperated  like the example result given ahead. Example result:Gadar,Sholay,Don,Golmaal";
-      const gptResult = await openai.chat.completions.create({
-        messages: [{ role: 'user', content:gptQuery }],
-        model: 'gpt-3.5-turbo',
-      });
-      console.log(gptResult.choices?.[0]?.message?.content);
-      const gptMovies=gptResult.choices?.[0]?.message?.content.split(",");
+      // let gptMovies=await getMoviesfromOpenAi(searchText.current.value);
+      let gptMovies=await getMoviesfromGemini(searchText.current.value);
       const promiseArray=gptMovies.map((movie)=>(serachMovieTMDB(movie.trim())));
       const tmdbResults=await Promise.all(promiseArray);
       console.log(tmdbResults);

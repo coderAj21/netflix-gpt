@@ -17,7 +17,7 @@ const Browse = () => {
   useTrendingMovies();
   useUpcomingMovies();
   return (
-    <div className='relative'>
+    <div className='relative w-screen h-screen overflow-x-hidden'>
       <Header/>
       {
         showGptSearch?

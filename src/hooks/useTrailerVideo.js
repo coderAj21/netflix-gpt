@@ -15,6 +15,7 @@ export const useTrailerVideo=(movieId)=>{
             // console.log(response);
             const filterData=response.results.filter((video)=>(video.type==="Trailer"));
             const trailer=filterData.length?filterData[0]:response.results[0];
+            console.log(trailer);
             dispatch(addTrailerVideo(trailer));
         }catch(error){
             console.log(error);
